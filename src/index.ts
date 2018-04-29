@@ -1,8 +1,7 @@
-import sagaCreator from './saga-creator';
-import { use, combine } from './use';
+import use from './use';
+import combine from './combine';
 
 export {
-  sagaCreator,
   use,
   combine,
 };

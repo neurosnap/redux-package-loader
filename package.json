@@ -11,14 +11,11 @@
   "author": "Eric Bower",
   "license": "MIT",
   "private": false,
-  "peerDependencies": {
-    "redux": ">1.0.0",
-    "redux-saga": ">0.10.0"
-  },
   "devDependencies": {
     "@types/node": "^9.6.6",
     "redux": "^4.0.0",
-    "redux-saga": "^0.16.0",
+    "tape": "^4.9.0",
+    "ts-node": "^6.0.2",
     "typescript": "^2.8.3",
     "typings": "^2.1.1"
   }
