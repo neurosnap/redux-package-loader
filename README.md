@@ -125,7 +125,8 @@ we can now register them with our main application.
 
 ```js
 // package.js
-import { use, sagaCreator } from 'redux-package-loader';
+import use from 'redux-package-loader';
+import sagaCreator from 'redux-saga-creator';
 
 const packages = use([
   require('../auth'),
@@ -168,7 +169,7 @@ import App from './components/app';
 const store = createState({ rootReducer, rootSaga });
 
 render(
-    <Provider store=store>
+    <Provider store={store}>
         <App />
     </Prodiver>,
     document.body,
