@@ -1,15 +1,26 @@
-import { Module, Modules, CombinedModules, ActionTypes, Functors, Gentors } from './types';
+import {
+  Module,
+  Modules,
+  CombinedModules,
+  ActionTypes,
+  Functors,
+  Gentors,
+} from './types';
 import { ReducersMapObject } from 'redux';
 
 const log = console.warn;
 
-export function use(modules: Modules = []): CombinedModules {
+export function use(modules: Modules = [], extra: string[] = []): CombinedModules {
   const reducers: ReducersMapObject = combine(modules, 'reducers');
   const actionTypes: ActionTypes = combine(modules, 'actionTypes');
   const actionCreators: Functors = combine(modules, 'actionCreators');
   const sagas: Gentors = combine(modules, 'sagas');
   const effects: Gentors = combine(modules, 'effects');
   const selectors: Functors = combine(modules, 'selectors');
+  const extras = extra.reduce(
+    (acc, name) => ({ ...acc, [name]: combine(modules, name) }),
+    {},
+  );
 
   return {
     reducers,
@@ -18,6 +29,7 @@ export function use(modules: Modules = []): CombinedModules {
     sagas,
     selectors,
     effects,
+    ...extras,
   };
 }
 
