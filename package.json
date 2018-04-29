@@ -1,6 +1,6 @@
 {
   "name": "redux-package-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Facilitate common interface between redux features",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
