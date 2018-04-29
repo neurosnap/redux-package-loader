@@ -1,10 +1,10 @@
-# Redux Package Loader
+# Redux Package Loader [![Build Status](https://travis-ci.org/neurosnap/redux-package-loader.svg?branch=master)](https://travis-ci.org/neurosnap/redux-package-loader)
 
 Create a common interface for all features in a redux application
 
 ## Inspiration
 
-Blog article that deep dives into this topic: {{TODO: add blog articles}}
+Blog article that deep dives into this topic: [Scaling a react redux codebase for multiple platforms](https://github.com/neurosnap/blog/blob/master/scaling-js-codebase-multiple-platforms.md)
 
 Scaling a large react/redux application requires thought behind how multiple
 features interact with each other.  Furthermore when there is a requirement
