@@ -4,12 +4,14 @@ Create a common interface for all features in a redux application
 
 ## Inspiration
 
+Blog article that deep dives into this topic: {{TODO: add blog articles}}
+
 Scaling a large react/redux application requires thought behind how multiple
 features interact with each other.  Furthermore when there is a requirement
 to target multiple platforms, it is critical to setup the folder, file organization
-in such a way that every platform developed doesn't feel like a burden.
+in such a way that every platform or feature developed doesn't feel like a burden.
 
-Tradition blueprints or starter packs that are transmitted across the internet
+Traditional blueprints or starter packs that are transmitted across the internet
 typically sets up applications by layer:
 
 ```bash
@@ -201,7 +203,14 @@ All objects from each package are combined into a single object:
         REMOVE_TODO: 'REMOVE_TODO',
     },
 }
+```
 
 Because of how this is setup, it is imperative to not add duplicate keys across
 packages.  This library will warn you if that happens.
-```
+
+## Yarn workspaces
+
+Taking this setup a step further we can leverage yarn workspaces to create
+a namespace for each package so we can use absolute imports.
+
+[lint-workspaces](https://github.com/neurosnap/lint-workspaces)
