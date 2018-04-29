@@ -7,12 +7,17 @@ import {
   ActionTypes,
   Functors,
   Gentors,
+  UseOptions,
 } from './types';
-import combine from './combine';
+import _combine from './combine';
 
-const log = console.warn;
+export default (
+  modules: Modules = [],
+  { extra = [], log }: UseOptions = {},
+): CombinedModules => {
+  const opts = { log };
+  const combine = (modules: Modules, name: string) => _combine(modules, name, opts);
 
-export default (modules: Modules = [], extra: string[] = []): CombinedModules => {
   const reducers: ReducersMapObject = combine(modules, 'reducers');
   const actionTypes: ActionTypes = combine(modules, 'actionTypes');
   const actionCreators: Functors = combine(modules, 'actionCreators');

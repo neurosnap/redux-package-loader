@@ -6,13 +6,15 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublish": "yarn run build"
+    "test": "ts-node ./node_modules/.bin/tape src/**/*.test.ts",
+    "prepublish": "yarn run build && yarn test"
   },
   "author": "Eric Bower",
   "license": "MIT",
   "private": false,
   "devDependencies": {
     "@types/node": "^9.6.6",
+    "@types/tape": "^4.2.32",
     "redux": "^4.0.0",
     "tape": "^4.9.0",
     "ts-node": "^6.0.2",

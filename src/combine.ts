@@ -1,8 +1,12 @@
-import { Module, Modules } from './types';
+import { Module, Modules, CombineOptions } from './types';
 
-const log = console.warn;
+const defaultLog = console.warn;
 
-export default (modules: Modules = [], name: string = '') => {
+export default (
+  modules: Modules = [],
+  name: string = '',
+  { log = defaultLog }: CombineOptions = {},
+) => {
   const merged: any = {};
 
   if (!name) {
@@ -25,7 +29,12 @@ export default (modules: Modules = [], name: string = '') => {
     });
   });
 
-  if (['sagas', 'reducers'].includes(name) || !window.hasOwnProperty('Proxy')) {
+  if (['sagas', 'reducers'].includes(name)) {
+    return merged;
+  }
+
+  const hasWindow = typeof window === undefined;
+  if (hasWindow && !window.hasOwnProperty('Proxy')) {
     return merged;
   }
 

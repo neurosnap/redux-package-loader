@@ -5,7 +5,7 @@ export interface Functors {
 }
 
 export interface Gentors {
-  [key: string]: Generator;
+  [key: string]: Generator | Function;
 }
 
 export type Reducer = Function;
@@ -27,3 +27,10 @@ export interface Module {
 
 export type CombinedModules = Module;
 export type Modules = Module[];
+export interface CombineOptions {
+  log?: Function;
+}
+export interface UseOptions {
+  extra?: string[];
+  log?: Function;
+}
